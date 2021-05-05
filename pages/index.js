@@ -17,15 +17,19 @@ export default function Home({ filters }) {
   const [page, setPage] = useState(1);
 
   function onChangeSelectedMinValue(value) {
+    setPage(1);
     setSelectedMinValue(value);
   }
   function onChangeSelectedMaxValue(value) {
+    setPage(1);
     setSelectedMaxValue(value);
   }
   function onChangeSelectedCategory(value) {
+    setPage(1);
     setSelectedCategory(value);
   }
   function onChangeSelectedColor(value) {
+    setPage(1);
     setSelectedColor(value);
   }
 
