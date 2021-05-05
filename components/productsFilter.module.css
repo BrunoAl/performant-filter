@@ -1,0 +1,22 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin: var(--spacing-ratios-80) var(--spacing-ratios-24);
+  max-width: 60rem;
+}
+
+@media (min-width: 1200px) {
+  .filter {
+    margin: var(--spacing-ratios-80) auto;
+  }
+}
+
+.filter__colors-button:last-child,
+.filter__categories-button:last-child {
+  margin-right: 0;
+}
+
+.filter__colors-title,
+.filter__categories-title {
+  font-size: var(--font-size-13);
+}

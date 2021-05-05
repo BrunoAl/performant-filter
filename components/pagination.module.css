@@ -1,0 +1,20 @@
+.pagination {
+  display: block;
+  margin: 0 auto;
+  margin-top: var(--spacing-ratios-24);
+  text-align: center;
+}
+
+.pagination__button {
+  margin-right: var(--spacing-ratios-08);
+  margin-bottom: var(--spacing-ratios-12);
+}
+
+.pagination__button:last-child {
+  margin-right: 0;
+}
+
+.pagination__button--active {
+  color: var(--color-primary);
+  background-color: var(--gray-scale-2);
+}

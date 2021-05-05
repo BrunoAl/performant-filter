@@ -1,0 +1,18 @@
+.filter__range-title,
+.filter__price-label {
+  font-size: var(--font-size-13);
+}
+
+.filter__price-label {
+  margin-right: var(--spacing-ratios-08);
+}
+
+.filter__price-input {
+  margin-left: var(--spacing-ratios-08);
+}
+
+.filter__colors-button--active,
+.filter__categories-button--active {
+  color: var(--color-primary);
+  background-color: var(--gray-scale-2);
+}

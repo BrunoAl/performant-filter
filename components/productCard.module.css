@@ -1,0 +1,24 @@
+.card {
+  width: 100%;
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-13);
+}
+
+.card__title,
+.card__price {
+  font-size: var(--font-size-13);
+  font-weight: 400;
+}
+
+.card__price {
+  padding-left: var(--spacing-ratios-12);
+}
+
+.card__img {
+  width: 100%;
+}
