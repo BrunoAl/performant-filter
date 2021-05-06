@@ -12,6 +12,8 @@ export default function ProductsFilter({
   onChangeMaxValue,
   selectedCategory,
   selectedColor,
+  selectedMinValue,
+  selectedMaxValue,
 }) {
   function onPriceRangeSubmit(e) {
     e.preventDefault();
@@ -22,7 +24,7 @@ export default function ProductsFilter({
   return (
     <div className={styles.filter}>
       <div>
-        <h3 className={styles['filter__colors-title']}>Colors</h3>
+        <h2 className={styles['filter__colors-title']}>Colors</h2>
         <FilterButton isSelected={selectedColor === ''} onClick={() => onChangeColor('')} text="All" />
         {filters.colors.map(color => (
           <FilterButton
@@ -35,8 +37,8 @@ export default function ProductsFilter({
       </div>
 
       <div>
-        <h3 className={styles['filter__categories-title']}>Categories</h3>
-        <FilterButton isSelected={selectedCategory === ''} onClick={() => onChangeColor('')} text="All" />
+        <h2 className={styles['filter__categories-title']}>Categories</h2>
+        <FilterButton isSelected={selectedCategory === ''} onClick={() => onChangeCategory('')} text="All" />
         {filters.categories.map(category => (
           <FilterButton
             key={category}
@@ -46,7 +48,7 @@ export default function ProductsFilter({
           />
         ))}
       </div>
-      <PriceRange onSubmit={onPriceRangeSubmit} />
+      <PriceRange onSubmit={onPriceRangeSubmit} min={selectedMinValue} max={selectedMaxValue} />
     </div>
   );
 }
@@ -62,4 +64,6 @@ ProductsFilter.propTypes = {
   onChangeMaxValue: PropTypes.func.isRequired,
   selectedCategory: PropTypes.string.isRequired,
   selectedColor: PropTypes.string.isRequired,
+  selectedMinValue: PropTypes.string.isRequired,
+  selectedMaxValue: PropTypes.string.isRequired,
 };

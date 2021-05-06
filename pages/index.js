@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Head from 'next/head';
 import useSWR from 'swr';
 import ProductsFilter from '../components/productsFilter';
 import ProductsList from '../components/productsList';
 import Pagination from '../components/pagination';
+import PageTitle from '../components/PageTitle';
 
 const fetcher = url => fetch(url).then(res => res.json());
 
@@ -44,8 +46,8 @@ export default function Home({ filters }) {
     fetcher,
   );
 
-  if (error) return <h3>failed to load</h3>;
-  if (!data) return <h3>Loading...</h3>;
+  if (error) return <h2>failed to load</h2>;
+  if (!data) return <h2>Loading...</h2>;
 
   const { products, numberOfPages } = data;
 
@@ -53,6 +55,10 @@ export default function Home({ filters }) {
 
   return (
     <div>
+      <Head>
+        <title>Filtering Assignment</title>
+      </Head>
+      <PageTitle>Filtering Assignment</PageTitle>
       <ProductsFilter
         filters={filters}
         onChangeCategory={onChangeSelectedCategory}
@@ -61,6 +67,8 @@ export default function Home({ filters }) {
         onChangeMinValue={onChangeSelectedMinValue}
         selectedCategory={selectedCategory}
         selectedColor={selectedColor}
+        selectedMinValue={selectedMinValue}
+        selectedMaxValue={selectedMaxValue}
       />
 
       <ProductsList products={products} />

@@ -1,0 +1,6 @@
+.page-title {
+  font-size: var(--font-size-18);
+  margin: 0 auto;
+  text-align: center;
+  margin: var(--spacing-ratios-24) 0;
+}

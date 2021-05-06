@@ -1,5 +1,7 @@
 .pagination {
   display: block;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 auto;
   margin-top: var(--spacing-ratios-24);
   text-align: center;
@@ -8,6 +10,7 @@
 .pagination__button {
   margin-right: var(--spacing-ratios-08);
   margin-bottom: var(--spacing-ratios-12);
+  list-style: none;
 }
 
 .pagination__button:last-child {
