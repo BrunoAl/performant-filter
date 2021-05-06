@@ -24,8 +24,6 @@ function filterProducts(products, query) {
     if (!productPrice) return false;
     const priceValue = Number(productPrice);
 
-    console.log(productPrice >= min && productPrice <= max);
-
     if (!min && max) return priceValue <= max;
     if (min && !max) return priceValue >= min;
 

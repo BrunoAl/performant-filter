@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ProductCard from './productCard';
 import styles from './ProductsList.module.css';
 
-console.log(styles);
 export default function ProductsList({ products }) {
   if (products.length === 0) {
     return <h2 className={styles['not-found']}>No items found :(</h2>;
