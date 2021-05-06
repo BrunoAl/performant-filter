@@ -8,6 +8,10 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp;
 
+MyApp.defaultProps = {
+  pageProps: {},
+};
+
 MyApp.propTypes = {
   Component: PropTypes.node.isRequired,
   pageProps: PropTypes.shape({}),
