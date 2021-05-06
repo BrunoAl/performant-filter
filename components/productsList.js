@@ -6,7 +6,7 @@ import styles from './ProductsList.module.css';
 console.log(styles);
 export default function ProductsList({ products }) {
   if (products.length === 0) {
-    return <div className={styles['not-found']}>No items found :(</div>;
+    return <h2 className={styles['not-found']}>No items found :(</h2>;
   }
 
   return (

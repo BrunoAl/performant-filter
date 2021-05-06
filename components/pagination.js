@@ -9,15 +9,14 @@ export default function Pagination({ numberOfPages, onSetPage, selectedPage }) {
       {Array(numberOfPages)
         .fill(null)
         .map((_, index) => (
-          <button
-            className={`${styles.pagination__button} ${
-              selectedPage === index + 1 && styles['pagination__button--active']
-            }`}
-            key={index}
-            onClick={() => onSetPage(index + 1)}
-          >
-            {index + 1}
-          </button>
+          <li key={index} className={styles.pagination__button}>
+            <button
+              className={`${selectedPage === index + 1 && styles['pagination__button--active']}`}
+              onClick={() => onSetPage(index + 1)}
+            >
+              {index + 1}
+            </button>
+          </li>
         ))}
     </ul>
   );

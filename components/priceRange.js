@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './priceRange.module.css';
 
-export default function PriceRange({ onSubmit }) {
-  const [minPrice, setMinPrice] = useState('');
-  const [maxPrice, setMaxPrice] = useState('');
+export default function PriceRange({ onSubmit, min, max }) {
+  const [minPrice, setMinPrice] = useState(min);
+  const [maxPrice, setMaxPrice] = useState(max);
 
   function onMinPriceChange(e) {
     e.preventDefault();
@@ -18,7 +18,7 @@ export default function PriceRange({ onSubmit }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <h3 className={styles['filter__range-title']}>Price range</h3>
+      <h2 className={styles['filter__range-title']}>Price range</h2>
       <label className={styles['filter__price-label']}>
         from:
         <input
@@ -46,4 +46,6 @@ export default function PriceRange({ onSubmit }) {
 
 PriceRange.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  min: PropTypes.string.isRequired,
+  max: PropTypes.string.isRequired,
 };
