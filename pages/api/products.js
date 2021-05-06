@@ -22,10 +22,14 @@ function filterProducts(products, query) {
     if (!min && !max) return product;
     const productPrice = product.node?.shopifyProductEu?.variants?.edges[0]?.node?.price;
     if (!productPrice) return false;
+    const priceValue = Number(productPrice);
 
-    if (!min && max) return productPrice <= max;
-    if (min && !max) return productPrice >= min;
-    return productPrice >= min && productPrice <= max;
+    console.log(productPrice >= min && productPrice <= max);
+
+    if (!min && max) return priceValue <= max;
+    if (min && !max) return priceValue >= min;
+
+    return priceValue >= min && priceValue <= max;
   };
 
   return products.filter(filterByCategory).filter(filterByColor).filter(filterByPrice);
@@ -33,7 +37,6 @@ function filterProducts(products, query) {
 
 function paginateProducts(products, page, size) {
   if (!page || !size) return products;
-
   return products.slice(size * (page - 1), size * page - 1);
 }
 
