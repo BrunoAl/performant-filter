@@ -11,7 +11,7 @@ const fetcher = url => fetch(url).then(res => res.json());
 
 const PAGINATION_SIZE = 12;
 
-export default function Home({ filters }) {
+export default function Home({ filters, API_URL }) {
   const [selectedMinValue, setSelectedMinValue] = useState('');
   const [selectedMaxValue, setSelectedMaxValue] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -40,7 +40,7 @@ export default function Home({ filters }) {
   }
 
   const { data, error } = useSWR(
-    `http://localhost:3000/api/products?min=${selectedMinValue}&max=${selectedMaxValue}&category=${encodeURIComponent(
+    `${API_URL}/products?min=${selectedMinValue}&max=${selectedMaxValue}&category=${encodeURIComponent(
       selectedCategory,
     )}&color=${selectedColor}&page=${page}&paginationSize=${PAGINATION_SIZE}`,
     fetcher,
@@ -79,7 +79,9 @@ export default function Home({ filters }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:3000/api/products`);
+  // eslint-disable-next-line no-undef
+  const { API_URL } = process.env;
+  const res = await fetch(`${API_URL}/products`);
   const { products } = await res.json();
 
   const filters = products.reduce(
@@ -96,10 +98,16 @@ export async function getStaticProps() {
   return {
     props: {
       filters: { colors: [...new Set(filters.colors)], categories: [...new Set(filters.categories)] },
+      API_URL,
     },
   };
 }
 
+Home.defaultProps = {
+  filters: null,
+};
+
 Home.propTypes = {
   filters: PropTypes.shape({}),
+  API_URL: PropTypes.string.isRequired,
 };
